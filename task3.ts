@@ -1,6 +1,15 @@
 // Напишите функцию, которая при каждом вызове будет выводит увеличенный счетчик на 1
 
 // Пример:
-// const counter = createCounter(10);
-// counter(); // 11
-// counter(); //12
+const counter = createCounter(10);
+const counter2 = createCounter(5);
+
+console.log(counter()); // 11
+console.log(counter()); //12
+console.log(counter2());
+function createCounter(n: number) {
+  let new_n = n;
+  return () => {
+    return (new_n += 1);
+  };
+}
