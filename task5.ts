@@ -2,16 +2,8 @@
 // Саму задачу обернуть в отдельную функцию getDate, которая принимает в качестве параметра произвольную дату в формате '2026-10-22T22:10:15'
 //* Проверить валидна ли дата в переданном параметре
 const strPad = (obj: number): string => obj.toString().padStart(2, "0");
-const rightFormat = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}$/;
 const wrongFormatText = "Неверный формат";
-const checkFormat = (str: string): boolean => rightFormat.test(str);
 function getDate(str: string | Date) {
-  if (!(str instanceof Date)) {
-    if (!checkFormat(str)) {
-      throw new Error(wrongFormatText);
-    }
-  }
-
   const dateObj: Date = new Date(str);
   if (Number.isNaN(dateObj.getTime())) {
     throw new Error(wrongFormatText);
@@ -30,7 +22,7 @@ function getDate(str: string | Date) {
 }
 
 console.log(getDate("2026-10-22T22:10:15"));
-/*console.log(getDate("rfrf"));
+console.log(getDate("rfrf"));
 console.log(getDate(""));
 console.log(getDate("12345"));
-console.log(getDate("2026-13-45T99:99:99"))*/
+console.log(getDate("2026-13-45T99:99:99"));
